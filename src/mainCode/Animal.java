@@ -9,6 +9,7 @@ public abstract class Animal {
 	protected Integer happiness;
 	protected Integer hunger;
 	protected ArrayList<Edible> belly;
+	protected BIOME biome;
 	
 	public Animal(String name, String gender, boolean maturity) {
 		this.name = name;
@@ -33,5 +34,14 @@ public abstract class Animal {
 	
 	public int checkHunger(){
 		return hunger;
+	}
+	
+	public String eat(Edible edible){
+		return null;
+	}
+
+	public BIOME getBiome() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

@@ -20,5 +20,7 @@ public class TestAnimals {
 		assertEquals("Lion Leo ate carrot", result);
 		assertEquals(55, leo.checkHunger());
 	}
+	
+	
 
 }

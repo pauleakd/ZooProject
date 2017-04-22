@@ -21,10 +21,17 @@ public class Enclosure {
 		return this.biome;
 	}
 	
-	public true addAnimal(Animal animal){
-		if (animal.getBiome() == biome){
+	public boolean addAnimal(Animal animal){
+		if (animal.getBiome() == biome && animal.getPlotSize() < plotSize){
 			animals.add(animal);
 			plotSize -= animal.getPlotSize();
+			return true;
 		}
+		return false;
+	}
+
+	public int getPlotSize() {
+		// TODO Auto-generated method stub
+		return plotSize;
 	}
 }

@@ -10,6 +10,7 @@ public abstract class Animal {
 	protected Integer hunger;
 	protected ArrayList<Edible> belly;
 	protected BIOME biome;
+	protected int plotSize;
 	
 	public Animal(String name, String gender, boolean maturity) {
 		this.name = name;
@@ -43,5 +44,9 @@ public abstract class Animal {
 	public BIOME getBiome() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+	
+	public int getPlotSize(){
+		return 0;
 	}
 }

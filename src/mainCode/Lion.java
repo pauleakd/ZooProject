@@ -5,6 +5,7 @@ public class Lion extends Animal {
 	public Lion(String name, String gender, boolean maturity){
 		super(name, gender, maturity);
 		biome = BIOME.SAVANAH;
+		plotSize = 50;
 	}
 	
 	@Override
@@ -18,5 +19,10 @@ public class Lion extends Animal {
 	@Override
 	public BIOME getBiome() {
 		return biome;
+	}
+	
+	@Override
+	public int getPlotSize() {
+		return plotSize;
 	}
 }

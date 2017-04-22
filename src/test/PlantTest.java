@@ -10,7 +10,6 @@ public class PlantTest {
 
 	@Test
 	public void testPlant() {
-		
 		Plant myPlant = new Plant("carrot", 5);
 		assertEquals(myPlant.getNutritionalValue(), 5);
 	}

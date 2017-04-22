@@ -18,6 +18,9 @@ public class Plant implements Edible {
 		return nutritionalValue;
 	}
 	
+	public String getName(){
+		return name;
+	}
 	
 
 }

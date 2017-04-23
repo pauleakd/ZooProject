@@ -31,7 +31,10 @@ public class Enclosure {
 	}
 
 	public int getPlotSize() {
-		// TODO Auto-generated method stub
 		return plotSize;
+	}
+
+	public void removeAnimal() {
+			
 	}
 }

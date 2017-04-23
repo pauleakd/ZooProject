@@ -35,5 +35,11 @@ public class TestEnclosure {
 		assertEquals(40, enclosure.getPlotSize());
 		assertEquals(0, enclosure.getAnimals().size());
 	}
-
+	
+	@Test 
+	public void TestRemoveAnimal(){
+		Animal leo = new Lion("Leo", "male", true);
+		Enclosure enclosure = new Enclosure(100, BIOME.SAVANAH);
+		enclosure.addAnimal(leo);
+		enclosure.removeAnimal();
 }

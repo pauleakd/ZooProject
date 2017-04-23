@@ -43,3 +43,4 @@ public class TestEnclosure {
 		enclosure.addAnimal(leo);
 		enclosure.removeAnimal();
 }
+}

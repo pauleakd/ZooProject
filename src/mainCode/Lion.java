@@ -15,14 +15,4 @@ public class Lion extends Animal {
 		hunger += value;
 		return "Lion " + name + " " + "ate " + food.getName(); 
 	}
-	
-	@Override
-	public BIOME getBiome() {
-		return biome;
-	}
-	
-	@Override
-	public int getPlotSize() {
-		return plotSize;
-	}
 }

@@ -41,6 +41,7 @@ public class TestEnclosure {
 		Animal leo = new Lion("Leo", "male", true);
 		Enclosure enclosure = new Enclosure(100, BIOME.SAVANAH);
 		enclosure.addAnimal(leo);
-		enclosure.removeAnimal();
+		enclosure.removeAnimal(leo);
+		assertEquals(0, enclosure.getAnimals().size());
 }
 }

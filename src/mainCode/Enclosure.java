@@ -1,19 +1,25 @@
 package mainCode;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+
+
 
 public class Enclosure {
-	private ArrayList<Animal> animals;
+	
+	
+	
+	private HashMap<String, Animal> animals;
 	private Integer plotSize;
 	private BIOME biome;
 	
 	public Enclosure(int plotSize, BIOME biome){
-		animals = new ArrayList<Animal>();
+		animals = new HashMap<String, Animal>();
 		this.plotSize = plotSize;
 		this.biome = biome;
 	}
 	
-	public ArrayList<Animal> getAnimals(){
+	public HashMap<String, Animal> getAnimals(){
 		return animals;
 	}
 	
@@ -23,7 +29,7 @@ public class Enclosure {
 	
 	public boolean addAnimal(Animal animal){
 		if (animal.getBiome() == biome && animal.getPlotSize() < plotSize){
-			animals.add(animal);
+			animals.put(animal.getName(), animal);
 			plotSize -= animal.getPlotSize();
 			return true;
 		}
@@ -34,7 +40,7 @@ public class Enclosure {
 		return plotSize;
 	}
 
-	public void removeAnimal() {
-			
+	public void removeAnimal(Animal animal) {
+		animals.remove(animal.getName());
 	}
 }

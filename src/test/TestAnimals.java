@@ -7,22 +7,22 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import mainCode.*;
-import mainCode.Lion;
+import mainCode.FireDragon;
 import mainCode.Plant;
-import mainCode.Rabbit;
+import mainCode.Unicorn;
 
 public class TestAnimals {
 
 	private Plant carrot;
-	private Lion leo;
-	private Rabbit rabbit;
+	private FireDragon leo;
+	private Unicorn unicorn;
 	
 	
 	@Before
 	public void before(){
 		carrot = new Plant("carrot", 5);
-		leo = new Lion("Leo", "male", true);
-		rabbit = new Rabbit("Zizi", "female", true);
+		leo = new FireDragon("Leo", "male", true);
+		unicorn = new Unicorn("Zizi", "female", true);
 	}
 
 	@Test
@@ -35,15 +35,15 @@ public class TestAnimals {
 	
 	@Test 
 	public void testLionCanEatRabbit(){
-		boolean result = leo.eat(rabbit);
+		boolean result = leo.eat(unicorn);
 		assertEquals(true, result);
 		assertEquals(120, leo.checkHunger());
 	}
 	
 	@Test
 	public void testRabbitCanEatCarrot() {
-		boolean result = rabbit.eat(carrot);
+		boolean result = unicorn.eat(carrot);
 		assertEquals(true, result);
-		assertEquals(55, rabbit.checkHunger());
+		assertEquals(55, unicorn.checkHunger());
 	}
 }

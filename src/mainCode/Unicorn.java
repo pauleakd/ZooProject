@@ -1,10 +1,10 @@
 package mainCode;
 
-public class Rabbit extends Animal {
+public class Unicorn extends Animal {
 
 	
 	
-	public Rabbit(String name, String gender, boolean maturity){
+	public Unicorn(String name, String gender, boolean maturity){
 		super(name, gender, maturity);
 		biome = BIOME.GRASSLANDS;
 		plotSize = 20;
@@ -15,7 +15,7 @@ public class Rabbit extends Animal {
 	
 	@Override
 	public boolean eat(Animal food){
-			System.out.println("Rabbit " + name +" is still hungry");
+			System.out.println("Unicorn " + name +" is still hungry");
 			return false;	
 		}
 

@@ -14,7 +14,7 @@ public class TestZoo {
 	
 	@Before
 	public void before(){
-		testAnimal = new Lion("Robo", "male", true);
+		testAnimal = new FireDragon("Robo", "male", true);
 		testZoo = new Zoo();
 		testVisitor = new Visitor("Larry", 50);
 	}
@@ -55,7 +55,7 @@ public class TestZoo {
 	@Test 
 	
 	public void zooCanSellBabyLion(){
-		Animal babyLion = new Lion("Fifa", "female", false);
+		Animal babyLion = new FireDragon("Fifa", "female", false);
 		testZoo.createSuitableEnclosure(babyLion);
 		Enclosure enclosure = testZoo.getEnclosures().get(0);
 		boolean result = enclosure.addAnimal(babyLion);

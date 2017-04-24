@@ -8,7 +8,7 @@ import org.junit.Test;
 import mainCode.Animal;
 import mainCode.BIOME;
 import mainCode.Enclosure;
-import mainCode.Lion;
+import mainCode.FireDragon;
 
 public class TestEnclosure {
 
@@ -18,7 +18,7 @@ public class TestEnclosure {
 
 	@Test
 	public void testAddAnimalTrue() {
-		Animal leo = new Lion("Leo", "male", true);
+		Animal leo = new FireDragon("Leo", "male", true);
 		Enclosure enclosure = new Enclosure(100, BIOME.SAVANAH);
 		boolean result = enclosure.addAnimal(leo);
 		assertEquals(true, result);
@@ -28,7 +28,7 @@ public class TestEnclosure {
 	
 	@Test
 	public void testAddAnimalFalse() {
-		Animal leo = new Lion("Leo", "male", true);
+		Animal leo = new FireDragon("Leo", "male", true);
 		Enclosure enclosure = new Enclosure(40, BIOME.SAVANAH);
 		boolean result = enclosure.addAnimal(leo);
 		assertEquals(false, result);
@@ -38,7 +38,7 @@ public class TestEnclosure {
 	
 	@Test 
 	public void TestRemoveAnimal(){
-		Animal leo = new Lion("Leo", "male", true);
+		Animal leo = new FireDragon("Leo", "male", true);
 		Enclosure enclosure = new Enclosure(100, BIOME.SAVANAH);
 		enclosure.addAnimal(leo);
 		assertEquals(1, enclosure.getAnimals().size());

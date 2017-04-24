@@ -1,8 +1,8 @@
 package mainCode;
 
-public class Lion extends Animal {
+public class FireDragon extends Animal {
 	
-	public Lion(String name, String gender, boolean maturity){
+	public FireDragon(String name, String gender, boolean maturity){
 		super(name, gender, maturity);
 		biome = BIOME.SAVANAH;
 		plotSize = 50;

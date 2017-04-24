@@ -6,12 +6,13 @@ public class Zoo {
 	private ArrayList<Visitor> visitors;
 	private int ticketPrice;
 	private ArrayList<Enclosure> enclosures;
+	private int budget;
 	
 	public Zoo(){
 		visitors = new ArrayList<Visitor>();
 		ticketPrice = 20;
 		enclosures = new ArrayList<Enclosure>();
-		
+		budget = 100;	
 	}
 	
 	public ArrayList<Visitor> getVisitors(){
@@ -37,5 +38,18 @@ public class Zoo {
 	public void createSuitableEnclosure(Animal animal){
 		Enclosure enclosure = new Enclosure(animal.getPlotSize(), animal.getBiome());
 		enclosures.add(enclosure);
+	}
+	
+	public boolean sellTicket(Visitor visitor){
+		if(visitor.buyTicket(ticketPrice) == true){
+		budget += ticketPrice;
+		visitors.add(visitor);
+		return true;
+		}
+		else return false;
+		}
+
+	public int getBudget() {
+		return budget;
 	}
 }

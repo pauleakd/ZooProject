@@ -51,5 +51,20 @@ public class TestZoo {
 		assertEquals(0, testZoo.getVisitors().size());
 		assertEquals(100, testZoo.getBudget());
 	}
+	
+	@Test 
+	
+	public void zooCanSellBabyLion(){
+		Animal babyLion = new Lion("Fifa", "female", false);
+		testZoo.createSuitableEnclosure(babyLion);
+		Enclosure enclosure = testZoo.getEnclosures().get(0);
+		boolean result = enclosure.addAnimal(babyLion);
+		assertEquals(true, result);
+		assertEquals(1, enclosure.getAnimals().size());
+		boolean result2 = testZoo.sellBabyAnimal(babyLion);
+		assertEquals(true, result2);
+		assertEquals(0, enclosure.getAnimals().size());
+		assertEquals(300, testZoo.getBudget());
+	}
 
 }

@@ -9,6 +9,7 @@ public class Lion extends Animal {
 		carnivoreStatus = true;
 		nutritionalValue = 200;
 		strength = 300;
+		price = 200;
 	}
 	
 	@Override

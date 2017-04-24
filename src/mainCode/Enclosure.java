@@ -28,7 +28,7 @@ public class Enclosure {
 	}
 	
 	public boolean addAnimal(Animal animal){
-		if (animal.getBiome() == biome && animal.getPlotSize() < plotSize){
+		if (animal.getBiome() == biome && animal.getPlotSize() <= plotSize){
 			animals.put(animal.getName(), animal);
 			plotSize -= animal.getPlotSize();
 			return true;

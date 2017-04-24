@@ -52,4 +52,19 @@ public class Zoo {
 	public int getBudget() {
 		return budget;
 	}
+	
+	public void removeAnimal(Animal animal){
+		for(Enclosure enclosure : enclosures){
+			enclosure.removeAnimal(animal);
+		}
+	}
+	
+	public boolean sellBabyAnimal(Animal animal){
+		if (animal.beSold() == true) {
+			budget += animal.getPrice();
+			removeAnimal(animal);
+			return true;
+		}
+		else return false;
+	}
 }

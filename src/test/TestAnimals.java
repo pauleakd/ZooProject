@@ -6,7 +6,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import mainCode.Animal;
+import mainCode.*;
 import mainCode.Lion;
 import mainCode.Plant;
 import mainCode.Rabbit;

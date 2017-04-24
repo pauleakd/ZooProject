@@ -24,11 +24,5 @@ public class Lion extends Animal {
 		return true;
 		}
 
-	public boolean beEaten(int strength) {
-		if(this.strength > strength){
-			return false;}
-		else{
-			return true;
-		}
-	}
+	
 	}	

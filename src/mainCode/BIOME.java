@@ -5,6 +5,7 @@ public enum BIOME {
 	JUNGLE,
 	PLAINS,
 	TUNDRA, 
-	OCEAN
+	OCEAN, 
+	GRASSLANDS
 	
 }

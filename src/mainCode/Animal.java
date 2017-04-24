@@ -70,4 +70,12 @@ public abstract class Animal implements Edible {
 	public int getNutritionalValue(){
 		return nutritionalValue;
 	}
+	
+	public boolean beEaten(int strength) {
+		if(this.strength > strength){
+			return false;}
+		else{
+			return true;
+		}
+	}
 }

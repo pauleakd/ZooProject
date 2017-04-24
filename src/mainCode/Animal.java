@@ -2,7 +2,7 @@ package mainCode;
 
 import java.util.ArrayList;
 
-public abstract class Animal {
+public abstract class Animal implements Edible {
 	protected String name;
 	protected String gender;
 	protected boolean maturity;
@@ -12,6 +12,8 @@ public abstract class Animal {
 	protected BIOME biome;
 	protected int plotSize;
 	protected boolean carnivoreStatus;
+	protected int nutritionalValue;
+	protected int strength;
 	
 	public Animal(String name, String gender, boolean maturity) {
 		this.name = name;
@@ -38,8 +40,19 @@ public abstract class Animal {
 		return hunger;
 	}
 	
-	public String eat(Edible edible){
-		return null;
+	public boolean eat(Animal food){
+		belly.add(food);
+		int value = food.getNutritionalValue();
+		hunger += value;
+		return true;
+	}
+	
+	public boolean eat(Plant edible){
+		belly.add(edible);
+		int value = edible.getNutritionalValue();
+		hunger += value;
+		return true;
+		
 	}
 
 	public BIOME getBiome() {
@@ -52,5 +65,9 @@ public abstract class Animal {
 	
 	public boolean getCarvinoreStatus(){
 		return carnivoreStatus;
+	}
+	
+	public int getNutritionalValue(){
+		return nutritionalValue;
 	}
 }

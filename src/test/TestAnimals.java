@@ -16,9 +16,9 @@ public class TestAnimals {
 	public void test() {
 		Plant carrot = new Plant("carrot", 5);
 		Lion leo = new Lion("Leo", "male", true);
-		String result = leo.eat(carrot);
-		assertEquals("Lion Leo ate carrot", result);
-		assertEquals(55, leo.checkHunger());
+		boolean result = leo.eat(carrot);
+		assertEquals(false, result);
+		assertEquals(50, leo.checkHunger());
 	}
 	
 	

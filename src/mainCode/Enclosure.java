@@ -35,6 +35,10 @@ public class Enclosure {
 		}
 		return false;
 	}
+	
+	public void expand(int size){
+		plotSize += size;
+	}
 
 	public int getPlotSize() {
 		return plotSize;

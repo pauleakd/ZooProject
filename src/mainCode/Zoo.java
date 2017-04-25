@@ -1,19 +1,20 @@
 package mainCode;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Zoo {
 	private ArrayList<Visitor> visitors;
 	private int ticketPrice;
 	private ArrayList<Enclosure> enclosures;
 	private int budget;
-	private ArrayList<Animal> unplacedAnimals;
+	private HashMap<String, Animal> unplacedAnimals;
 	
 	public Zoo(){
 		visitors = new ArrayList<Visitor>();
 		ticketPrice = 20;
 		enclosures = new ArrayList<Enclosure>();
-		unplacedAnimals = new ArrayList<Animal>();
+		unplacedAnimals = new HashMap<String, Animal>();
 		budget = 100;	
 	}
 	
@@ -43,9 +44,9 @@ public class Zoo {
 	}
 	
 //	public boolean addToExistingEnclosure(Animal animal) {
-//		TODO
+//		
 //	}
-//	
+	
 	public boolean sellTicket(Visitor visitor){
 		if(visitor.buyTicket(ticketPrice) == true){
 		budget += ticketPrice;
@@ -66,7 +67,21 @@ public class Zoo {
 	}
 	
 	public void addAnimalToZoo(Animal animal){
-		unplacedAnimals.add(animal);
+		unplacedAnimals.put(animal.getName(),animal);
+	}
+	
+	public Animal findAnimalInEnclosures(String name){
+		Animal foundAnimal = null;
+		for(Enclosure enclosure : enclosures){
+			foundAnimal = enclosure.getAnimals().get(name);
+		}
+		return foundAnimal;
+	}
+	
+	public Animal findUnplacedAnimal(String name){
+		Animal foundAnimal = null;
+		foundAnimal = unplacedAnimals.get(name);
+		return foundAnimal;
 	}
 	
 	
@@ -92,7 +107,7 @@ public class Zoo {
 		else return false;
 	}
 
-	public ArrayList<Animal> getUnplacedAnimals() {
+	public HashMap<String, Animal> getUnplacedAnimals() {
 		
 		return unplacedAnimals;
 	}

@@ -12,7 +12,7 @@ public class TestVisitor {
 	
 	@Before
 	public void before(){
-	visitor = new Visitor("Paule", 100);}
+	visitor = new Visitor("Paule", "female", true, 100 );}
 	
 	@Test
 	public void testSetup(){

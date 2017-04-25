@@ -127,7 +127,7 @@ public class TestZoo {
 		boolean result = leo.eat(unicorn);
 		assertEquals(true, result);
 		assertEquals(true, unicorn.getIsDead());
-		testZoo.removeDeadAnimalsFromZoo();
+		testZoo.removeDeadAnimalsFromZoo(); 
 		assertEquals(1, testZoo.getEnclosures().get(0).getAnimals().size());
 	}
 }

@@ -41,6 +41,7 @@ public class Zoo {
 	public void createSuitableEnclosure(Animal animal){
 		Enclosure enclosure = new Enclosure(animal.getPlotSize(), animal.getBiome());
 		enclosures.add(enclosure);
+		enclosure.addAnimal(animal);
 	}
 	
 //	public boolean addToExistingEnclosure(Animal animal) {
@@ -110,5 +111,22 @@ public class Zoo {
 	public HashMap<String, Animal> getUnplacedAnimals() {
 		
 		return unplacedAnimals;
+	}
+
+	public void placeAnimalInEnclosure(Animal animal) {
+		for(Enclosure enclosure : enclosures){
+			if (enclosure.getBiome() == animal.getBiome()){
+				if(enclosure.getPlotSize()>= animal.getPlotSize()){
+					enclosure.addAnimal(animal);
+				}
+				else {
+					enclosure.expand(animal.getPlotSize());
+					enclosure.addAnimal(animal);
+				}
+			}
+			else {
+				createSuitableEnclosure(animal);
+			}
+		}
 	}
 }

@@ -12,13 +12,18 @@ public class TestZoo {
 	private Animal testAnimal;
 	private Visitor testVisitor;
 	private Zoo testZoo2;
-	
+	private Plant carrot;
+	private FireDragon leo;
+	private Unicorn unicorn;
 	@Before
 	public void before(){
 		testAnimal = new FireDragon("Robo", "male", true);
 		testZoo = new Zoo();
 		testVisitor = new Visitor("Larry", "male", true, 50);
 		testZoo2 = new Zoo();
+		carrot = new Plant("carrot", 5);
+		leo = new FireDragon("Leo", "male", true);
+		unicorn = new Unicorn("Zizi", "female", true);
 	}
 	
 	@Test 
@@ -112,5 +117,17 @@ public class TestZoo {
 		assertEquals(null, testZoo.findAnimalInEnclosures(babyDragon.getName()));
 		assertEquals(babyDragon, testZoo2.findAnimalInEnclosures(babyDragon.getName()));
 	}
-
+	
+	@Test 
+	
+	public void testRemoveDeadAnimalsFromZoo(){
+		testZoo.placeAnimalInEnclosure(unicorn);
+		testZoo.placeAnimalInEnclosure(leo);
+		assertEquals(2, testZoo.getEnclosures().get(0).getAnimals().size());
+		boolean result = leo.eat(unicorn);
+		assertEquals(true, result);
+		assertEquals(true, unicorn.getIsDead());
+		testZoo.removeDeadAnimalsFromZoo();
+		assertEquals(1, testZoo.getEnclosures().get(0).getAnimals().size());
+	}
 }

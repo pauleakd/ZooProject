@@ -52,10 +52,13 @@ public abstract class Animal implements Edible {
 	}
 	
 	public boolean eat(Animal food){
+		boolean result = food.beEaten(strength);
+		if(result == true){
 		belly.add(food);
 		int value = food.getNutritionalValue();
 		hunger += value;
-		return true;
+		return true;}
+		else return false;
 	}
 	
 	public boolean eat(Plant edible){
@@ -101,4 +104,6 @@ public abstract class Animal implements Edible {
 	public int getPrice() {
 		return price;
 	}
+	
+	
 }

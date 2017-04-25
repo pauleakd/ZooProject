@@ -6,7 +6,7 @@ public class Unicorn extends Animal implements Edible {
 	
 	public Unicorn(String name, String gender, boolean maturity){
 		super(name, gender, maturity);
-		biome = BIOME.GRASSLANDS;
+		biome = BIOME.SAVANAH;
 		plotSize = 20;
 		carnivoreStatus = false;
 		nutritionalValue = 70;

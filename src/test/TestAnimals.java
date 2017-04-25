@@ -3,13 +3,9 @@ package test;
 import static org.junit.Assert.*;
 
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 
 import mainCode.*;
-import mainCode.FireDragon;
-import mainCode.Plant;
-import mainCode.Unicorn;
 
 public class TestAnimals {
 
@@ -45,4 +41,12 @@ public class TestAnimals {
 		assertEquals(true, result);
 		assertEquals(55, unicorn.checkHunger());
 	}
-}
+	
+	@Test 
+	
+	public void testUnicornCanDie() {
+		boolean result = leo.eat(unicorn);
+		assertEquals(true, result);
+		assertEquals(true, unicorn.getIsDead());
+	}
+ }

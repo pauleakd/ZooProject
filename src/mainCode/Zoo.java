@@ -34,8 +34,6 @@ public class Zoo {
 		ticketPrice = newPrice;
 	}
 	
-
-	
 	public boolean sellTicket(Visitor visitor){
 		if(visitor.buyTicket(ticketPrice) == true){
 		budget += ticketPrice;
@@ -72,8 +70,6 @@ public class Zoo {
 		foundAnimal = unplacedAnimals.get(name);
 		return foundAnimal;
 	}
-	
-	
 	
 	public boolean sellBabyAnimal(String name, Zoo buyingZoo){
 		Animal animalToSell = findAnimalInEnclosures(name);
@@ -132,5 +128,27 @@ public class Zoo {
 			
 		}
 		createSuitableEnclosure(animal);
+	}
+	
+	public void removeDeadAnimalsFromZoo(){
+			
+		for(Enclosure enclosure : enclosures){
+			ArrayList<String> animalToRemoveKeys = new ArrayList<String>();
+			
+			HashMap<String, Animal> animals = enclosure.getAnimals();
+			
+			for(String animalName : animals.keySet()) {
+				
+				Animal animal = animals.get(animalName);
+
+				if(animal.getIsDead() == true) {
+					animalToRemoveKeys.add(animalName);
+				}
+			}
+			
+			for(String animalToRemoveName : animalToRemoveKeys) {
+				animals.remove(animalToRemoveName);
+			}			
+		}
 	}
 }

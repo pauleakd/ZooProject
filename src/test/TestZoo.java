@@ -98,19 +98,19 @@ public class TestZoo {
 		assertEquals(testAnimal, testZoo.findAnimalInEnclosures(testAnimal.getName()));
 	}
 	
-//	@Test
-//	
-//	public void zooCanSellBabyLionToAnotherZoo(){
-//		Animal babyDragon = new FireDragon("Fifa", "female", false);
-//		testZoo.placeAnimalInEnclosure(babyDragon);
-//		Zoo testZoo2 = new Zoo();
-//		testZoo2.setBudget(1000);
-//		boolean result2 = testZoo.sellBabyAnimal(babyDragon.getName(), testZoo2);
-//		assertEquals(true, result2);
-//		assertEquals(800, testZoo2.getBudget());
-//		assertEquals(300, testZoo.getBudget());	
-//		assertEquals(0, testZoo.getUnplacedAnimals().size());
-//		assertEquals(1, testZoo2.getUnplacedAnimals().size());
-//	}
+	@Test
+	
+	public void zooCanSellBabyLionToAnotherZoo(){
+		Animal babyDragon = new FireDragon("Fifa", "female", false);
+		testZoo.placeAnimalInEnclosure(babyDragon);
+		Zoo testZoo2 = new Zoo();
+		testZoo2.setBudget(1000);
+		boolean result2 = testZoo.sellBabyAnimal(babyDragon.getName(), testZoo2);
+		assertEquals(true, result2);
+		assertEquals(800, testZoo2.getBudget());
+		assertEquals(300, testZoo.getBudget());	
+		assertEquals(null, testZoo.findAnimalInEnclosures(babyDragon.getName()));
+		assertEquals(babyDragon, testZoo2.findAnimalInEnclosures(babyDragon.getName()));
+	}
 
 }

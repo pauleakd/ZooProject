@@ -84,8 +84,7 @@ public class TestZoo {
 //		assertEquals(true, result2);
 //		assertEquals(800, testZoo2.getBudget());
 //		assertEquals(0, enclosure.getAnimals().size());
-//		assertEquals(300, testZoo.getBudget());	
-//		
+//		assertEquals(300, testZoo.getBudget());		
 //	}
 	
 	@Test 

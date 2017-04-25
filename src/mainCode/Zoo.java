@@ -7,11 +7,13 @@ public class Zoo {
 	private int ticketPrice;
 	private ArrayList<Enclosure> enclosures;
 	private int budget;
+	private ArrayList<Animal> unplacedAnimals;
 	
 	public Zoo(){
 		visitors = new ArrayList<Visitor>();
 		ticketPrice = 20;
 		enclosures = new ArrayList<Enclosure>();
+		unplacedAnimals = new ArrayList<Animal>();
 		budget = 100;	
 	}
 	

@@ -27,7 +27,6 @@ public class TestAnimals {
 
 	@Test
 	public void testDragonCannotEatCarrot() {
-		
 		boolean result = leo.eat(carrot);
 		assertEquals(false, result);
 		assertEquals(50, leo.checkHunger());

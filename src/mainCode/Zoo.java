@@ -34,19 +34,7 @@ public class Zoo {
 		ticketPrice = newPrice;
 	}
 	
-	public void addEnclosure(Enclosure enclosure){
-		enclosures.add(enclosure);
-	}
-	
-	public void createSuitableEnclosure(Animal animal){
-		Enclosure enclosure = new Enclosure(animal.getPlotSize(), animal.getBiome());
-		enclosures.add(enclosure);
-		enclosure.addAnimal(animal);
-	}
-	
-//	public boolean addToExistingEnclosure(Animal animal) {
-//		
-//	}
+
 	
 	public boolean sellTicket(Visitor visitor){
 		if(visitor.buyTicket(ticketPrice) == true){
@@ -87,16 +75,23 @@ public class Zoo {
 	
 	
 	
-//	public boolean sellBabyAnimal(Animal animal, Zoo buyingZoo){
-//		if (buyingZoo.buyBabyAnimal(animal) && animal.beSold() == true) {
-//			budget += animal.getPrice();
-//			removeAnimal(animal);
-//			return true;
-//			buyingZoo.buyBabyAnimal(animal);
-//			
-//		}
-//		else return false;
-//	}
+	public boolean sellBabyAnimal(String name, Zoo buyingZoo){
+		Animal animalToSell = findAnimalInEnclosures(name);
+		if (buyingZoo.checkCanAffordAnimal(animalToSell) && animalToSell.beSold() == true) {
+			budget += animalToSell.getPrice();
+			removeAnimal(animalToSell);
+			buyingZoo.buyBabyAnimal(animalToSell);
+			return true;
+			
+		}
+		else return false;
+	}
+
+	private void buyBabyAnimal(Animal animal) {
+		budget -= animal.getPrice();
+		placeAnimalInEnclosure(animal);
+		
+	}
 
 	public void setBudget(int amount) {
 		budget = amount;
@@ -112,6 +107,16 @@ public class Zoo {
 		
 		return unplacedAnimals;
 	}
+	
+	public void addEnclosure(Enclosure enclosure){
+		enclosures.add(enclosure);
+	}
+	
+	public void createSuitableEnclosure(Animal animal){
+		Enclosure enclosure = new Enclosure(animal.getPlotSize(), animal.getBiome());
+		enclosure.addAnimal(animal);
+		enclosures.add(enclosure);
+	}
 
 	public void placeAnimalInEnclosure(Animal animal) {
 		for(Enclosure enclosure : enclosures){
@@ -120,13 +125,12 @@ public class Zoo {
 					enclosure.addAnimal(animal);
 				}
 				else {
-					enclosure.expand(animal.getPlotSize());
+					enclosure.expand(animal.getPlotSize() - enclosure.getPlotSize());
 					enclosure.addAnimal(animal);
 				}
 			}
-			else {
-				createSuitableEnclosure(animal);
-			}
+			
 		}
+		createSuitableEnclosure(animal);
 	}
 }

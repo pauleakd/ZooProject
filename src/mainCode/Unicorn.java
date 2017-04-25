@@ -1,6 +1,6 @@
 package mainCode;
 
-public class Unicorn extends Animal {
+public class Unicorn extends Animal implements Edible {
 
 	
 	

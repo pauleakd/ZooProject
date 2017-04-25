@@ -59,12 +59,26 @@ public class Zoo {
 		}
 	}
 	
-	public boolean sellBabyAnimal(Animal animal){
-		if (animal.beSold() == true) {
-			budget += animal.getPrice();
-			removeAnimal(animal);
-			return true;
-		}
+	
+	
+//	public boolean sellBabyAnimal(Animal animal, Zoo buyingZoo){
+//		if (buyingZoo.buyBabyAnimal(animal) && animal.beSold() == true) {
+//			budget += animal.getPrice();
+//			removeAnimal(animal);
+//			return true;
+//			buyingZoo.buyBabyAnimal(animal);
+//			
+//		}
+//		else return false;
+//	}
+
+	public void setBudget(int amount) {
+		budget = amount;
+		
+	}
+
+	public boolean checkCanAffordAnimal(Animal animal) {
+		if(budget >= animal.getPrice()) return true;
 		else return false;
 	}
 }

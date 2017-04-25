@@ -22,7 +22,7 @@ public class Unicorn extends Animal {
 	@Override 
 	public boolean eat(Plant food){
 		super.eat(food);
-		System.out.println("Rabbit " + name + " " + "ate " + food.getName());
+		System.out.println("Unicorn " + name + " " + "ate " + food.getName());
 		return true;
 		}
 	

@@ -11,12 +11,14 @@ public class TestZoo {
 	private Zoo testZoo;
 	private Animal testAnimal;
 	private Visitor testVisitor;
+	private Zoo testZoo2;
 	
 	@Before
 	public void before(){
 		testAnimal = new FireDragon("Robo", "male", true);
 		testZoo = new Zoo();
 		testVisitor = new Visitor("Larry", 50);
+		testZoo2 = new Zoo();
 	}
 	
 	@Test 
@@ -52,19 +54,53 @@ public class TestZoo {
 		assertEquals(100, testZoo.getBudget());
 	}
 	
-	@Test 
+//	@Test
+	//this was used for testing when baby animal was sold(removed) but not added to another zoo.
+//	
+//	public void zooCanSellBabyLion(){
+//		Animal babyLion = new FireDragon("Fifa", "female", false);
+//		testZoo.createSuitableEnclosure(babyLion);
+//		Enclosure enclosure = testZoo.getEnclosures().get(0);
+//		boolean result = enclosure.addAnimal(babyLion);
+//		assertEquals(true, result);
+//		assertEquals(1, enclosure.getAnimals().size());
+//		boolean result2 = testZoo.sellBabyAnimal(babyLion);
+//		assertEquals(true, result2);
+//		assertEquals(0, enclosure.getAnimals().size());
+//		assertEquals(300, testZoo.getBudget());
+//	}
 	
-	public void zooCanSellBabyLion(){
-		Animal babyLion = new FireDragon("Fifa", "female", false);
-		testZoo.createSuitableEnclosure(babyLion);
-		Enclosure enclosure = testZoo.getEnclosures().get(0);
-		boolean result = enclosure.addAnimal(babyLion);
+//	@Test
+//	
+//	public void zooCanSellBabyLionToAnotherZoo(){
+//		Animal babyDragon = new FireDragon("Fifa", "female", false);
+//		testZoo.createSuitableEnclosure(babyDragon);
+//		Enclosure enclosure = testZoo.getEnclosures().get(0);
+//		boolean result = enclosure.addAnimal(babyDragon);
+//		assertEquals(true, result);
+//		Zoo testZoo2 = new Zoo();
+//		testZoo2.setBudget(1000);
+//		boolean result2 = testZoo.sellBabyAnimal(babyDragon, testZoo2);
+//		assertEquals(true, result2);
+//		assertEquals(800, testZoo2.getBudget());
+//		assertEquals(0, enclosure.getAnimals().size());
+//		assertEquals(300, testZoo.getBudget());	
+//		
+//	}
+	
+	@Test 
+	public void testChekingIfZooCanBuyAnimalTrue(){
+		testZoo2.setBudget(1000);
+		Animal babyDragon = new FireDragon("Fifa", "female", false);
+		boolean result = testZoo2.checkCanAffordAnimal(babyDragon);
 		assertEquals(true, result);
-		assertEquals(1, enclosure.getAnimals().size());
-		boolean result2 = testZoo.sellBabyAnimal(babyLion);
-		assertEquals(true, result2);
-		assertEquals(0, enclosure.getAnimals().size());
-		assertEquals(300, testZoo.getBudget());
+	}
+	
+	@Test 
+	public void testChekingIfZooCanBuyAnimalFalse(){
+		Animal babyDragon = new FireDragon("Fifa", "female", false);
+		boolean result = testZoo2.checkCanAffordAnimal(babyDragon);
+		assertEquals(false, result);
 	}
 
 }

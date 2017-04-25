@@ -14,14 +14,14 @@ public class FireDragon extends Animal {
 	
 	@Override
 	public boolean eat(Plant food){
-			System.out.println("Lion " + name +" is still hungry");
+			System.out.println("Fire Dragon " + name +" is still hungry");
 			return false;	
 		}
 
 	@Override 
 	public boolean eat(Animal food){
 		super.eat(food);
-		System.out.println("Lion " + name + " " + "ate " + food.getName());
+		System.out.println("Fire Dragon " + name + " " + "ate " + food.getName());
 		return true;
 		}
 

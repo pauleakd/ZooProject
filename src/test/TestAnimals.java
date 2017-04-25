@@ -26,7 +26,7 @@ public class TestAnimals {
 	}
 
 	@Test
-	public void testLionCannotEatCarrot() {
+	public void testDragonCannotEatCarrot() {
 		
 		boolean result = leo.eat(carrot);
 		assertEquals(false, result);
@@ -34,14 +34,14 @@ public class TestAnimals {
 	}
 	
 	@Test 
-	public void testLionCanEatRabbit(){
+	public void testDragonCanEatUnicorn(){
 		boolean result = leo.eat(unicorn);
 		assertEquals(true, result);
 		assertEquals(120, leo.checkHunger());
 	}
 	
 	@Test
-	public void testRabbitCanEatCarrot() {
+	public void testUnicornCanEatCarrot() {
 		boolean result = unicorn.eat(carrot);
 		assertEquals(true, result);
 		assertEquals(55, unicorn.checkHunger());

@@ -42,6 +42,10 @@ public class Zoo {
 		enclosures.add(enclosure);
 	}
 	
+//	public boolean addToExistingEnclosure(Animal animal) {
+//		TODO
+//	}
+//	
 	public boolean sellTicket(Visitor visitor){
 		if(visitor.buyTicket(ticketPrice) == true){
 		budget += ticketPrice;
@@ -59,6 +63,10 @@ public class Zoo {
 		for(Enclosure enclosure : enclosures){
 			enclosure.removeAnimal(animal);
 		}
+	}
+	
+	public void addAnimalToZoo(Animal animal){
+		unplacedAnimals.add(animal);
 	}
 	
 	
@@ -82,5 +90,10 @@ public class Zoo {
 	public boolean checkCanAffordAnimal(Animal animal) {
 		if(budget >= animal.getPrice()) return true;
 		else return false;
+	}
+
+	public ArrayList<Animal> getUnplacedAnimals() {
+		
+		return unplacedAnimals;
 	}
 }

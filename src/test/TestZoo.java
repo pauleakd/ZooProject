@@ -17,7 +17,7 @@ public class TestZoo {
 	public void before(){
 		testAnimal = new FireDragon("Robo", "male", true);
 		testZoo = new Zoo();
-		testVisitor = new Visitor("Larry", 50);
+		testVisitor = new Visitor("Larry", "male", true, 50);
 		testZoo2 = new Zoo();
 	}
 	
@@ -70,7 +70,7 @@ public class TestZoo {
 //		assertEquals(300, testZoo.getBudget());
 //	}
 	
-	@Test
+//	@Test
 //	
 //	public void zooCanSellBabyLionToAnotherZoo(){
 //		Animal babyDragon = new FireDragon("Fifa", "female", false);
@@ -102,9 +102,16 @@ public class TestZoo {
 	}
 	
 	@Test 
-	public void testFindAnimalInTheZoo(String name){
+	public void testFindAnimalInTheZooTrue(){
 		testZoo.addAnimalToZoo(testAnimal);
 		Animal foundAnimal = testZoo.findUnplacedAnimal(testAnimal.getName());
+		assertEquals(testAnimal, foundAnimal);
+	}
+	
+	@Test 
+	public void testFindAnimalInTheZooFalse(){
+		Animal foundAnimal = testZoo.findUnplacedAnimal(testAnimal.getName());
+		assertEquals(null, foundAnimal);
 	}
 
 }

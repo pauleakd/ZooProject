@@ -4,11 +4,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 
-
 public class Enclosure {
-	
-	
-	
+
 	private HashMap<String, Animal> animals;
 	private Integer plotSize;
 	private BIOME biome;

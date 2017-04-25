@@ -36,10 +36,10 @@ public class Zoo {
 	
 	public boolean sellTicket(Visitor visitor){
 		if(visitor.buyTicket(ticketPrice) == true){
-		budget += ticketPrice;
-		visitors.add(visitor);
-		return true;
-		}
+			budget += ticketPrice;
+			visitors.add(visitor);
+			return true;
+			}
 		else return false;
 		}
 
@@ -78,7 +78,6 @@ public class Zoo {
 			removeAnimal(animalToSell);
 			buyingZoo.buyBabyAnimal(animalToSell);
 			return true;
-			
 		}
 		else return false;
 	}
@@ -86,12 +85,10 @@ public class Zoo {
 	private void buyBabyAnimal(Animal animal) {
 		budget -= animal.getPrice();
 		placeAnimalInEnclosure(animal);
-		
 	}
 
 	public void setBudget(int amount) {
 		budget = amount;
-		
 	}
 
 	public boolean checkCanAffordAnimal(Animal animal) {
@@ -131,7 +128,6 @@ public class Zoo {
 	}
 	
 	public void removeDeadAnimalsFromZoo(){
-			
 		for(Enclosure enclosure : enclosures){
 			ArrayList<String> animalToRemoveKeys = new ArrayList<String>();
 			
@@ -145,7 +141,6 @@ public class Zoo {
 					animalToRemoveKeys.add(animalName);
 				}
 			}
-			
 			for(String animalToRemoveName : animalToRemoveKeys) {
 				animals.remove(animalToRemoveName);
 			}			

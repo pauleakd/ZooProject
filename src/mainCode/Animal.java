@@ -15,6 +15,7 @@ public abstract class Animal implements Edible {
 	protected int nutritionalValue;
 	protected int strength;
 	protected int price;
+	protected boolean isDead; 
 	
 	public Animal(String name, String gender, boolean maturity) {
 		this.name = name;
@@ -23,6 +24,7 @@ public abstract class Animal implements Edible {
 		happiness = 50;
 		hunger = 50;
 		belly = new ArrayList<Edible>();
+		isDead = false;
 	}
 	
 	public String getName() {
@@ -31,6 +33,14 @@ public abstract class Animal implements Edible {
 	
 	public void growUp(){
 		this.maturity = true;
+	}
+	
+	public boolean getIsDead(){
+		return this.isDead;
+	}
+	
+	public void die(){
+		isDead = true;
 	}
 	
 	public boolean isAdult(){
@@ -75,7 +85,10 @@ public abstract class Animal implements Edible {
 	public boolean beEaten(int strength) {
 		if(this.strength > strength){
 			return false;}
-		else return true;
+		else {
+			die();
+			return true;
+		}
 	}
 	
 	public boolean beSold(){

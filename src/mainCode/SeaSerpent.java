@@ -13,8 +13,11 @@ public class SeaSerpent extends Animal {
 	
 	@Override
 	public boolean eat(Plant food){
-			System.out.println("Sea Serpent " + name +" is still hungry");
-			return false;	
+		boolean result = super.eat(food);
+		if (result==true){
+			System.out.println("Sea Serpent " + name + " " + "ate " + food.getName());
+			return true;}
+		else return false;
 		}
 
 	@Override 

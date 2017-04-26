@@ -15,7 +15,7 @@ public class SeaSerpent extends Animal {
 	public boolean eat(Plant food){
 		boolean result = super.eat(food);
 		if (result==true){
-			System.out.println("Sea Serpent " + name + " " + "ate " + food.getName());
+			System.out.println("SeaSerpent " + name + " " + "ate " + food.getName());
 			return true;}
 		else return false;
 		}
@@ -24,7 +24,7 @@ public class SeaSerpent extends Animal {
 	public boolean eat(Animal food){
 		boolean result = super.eat(food);
 		if (result==true){
-			System.out.println("Sea Serpent " + name + " " + "ate " + food.getName());
+			System.out.println("SeaSerpent " + name + " " + "ate " + food.getName());
 			return true;}
 		else return false;
 		}

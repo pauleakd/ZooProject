@@ -19,7 +19,7 @@ public class TestEnclosure {
 	@Test
 	public void testAddAnimalTrue() {
 		Animal leo = new FireDragon("Leo", "male", true);
-		Enclosure enclosure = new Enclosure(100, BIOME.SAVANAH);
+		Enclosure enclosure = new Enclosure(100, BIOME.SAVANNAH);
 		boolean result = enclosure.addAnimal(leo);
 		assertEquals(true, result);
 		assertEquals(50, enclosure.getPlotSize());
@@ -29,7 +29,7 @@ public class TestEnclosure {
 	@Test
 	public void testAddAnimalFalse() {
 		Animal leo = new FireDragon("Leo", "male", true);
-		Enclosure enclosure = new Enclosure(40, BIOME.SAVANAH);
+		Enclosure enclosure = new Enclosure(40, BIOME.SAVANNAH);
 		boolean result = enclosure.addAnimal(leo);
 		assertEquals(false, result);
 		assertEquals(40, enclosure.getPlotSize());
@@ -39,7 +39,7 @@ public class TestEnclosure {
 	@Test 
 	public void TestRemoveAnimal(){
 		Animal leo = new FireDragon("Leo", "male", true);
-		Enclosure enclosure = new Enclosure(100, BIOME.SAVANAH);
+		Enclosure enclosure = new Enclosure(100, BIOME.SAVANNAH);
 		enclosure.addAnimal(leo);
 		assertEquals(1, enclosure.getAnimals().size());
 		enclosure.removeAnimal(leo);

@@ -39,7 +39,7 @@ public class TestZoo {
 		testZoo.createSuitableEnclosure(testAnimal);
 		Enclosure enclosure = testZoo.getEnclosures().get(0);
 		assertEquals(0, enclosure.getPlotSize());
-		assertEquals(BIOME.SAVANAH, enclosure.getBiome());
+		assertEquals(BIOME.SAVANNAH, enclosure.getBiome());
 	}
 	
 	@Test 
@@ -96,7 +96,7 @@ public class TestZoo {
 	
 	@Test 
 	public void testPlaceAnimalInEnclosure(){
-		Enclosure enclosureSavannah = new Enclosure(50, BIOME.SAVANAH);
+		Enclosure enclosureSavannah = new Enclosure(50, BIOME.SAVANNAH);
 		testZoo.addEnclosure(enclosureSavannah);
 		testZoo.placeAnimalInEnclosure(testAnimal);
 		assertEquals(1, testZoo.getEnclosures().get(0).getAnimals().size());

@@ -139,9 +139,9 @@ public class Zoo {
 				}
 			}
 				
-			}
-		createSuitableEnclosure(animal);
 		}
+		createSuitableEnclosure(animal);
+	}
 		
 	
 	public void removeDeadAnimalsFromZoo(){

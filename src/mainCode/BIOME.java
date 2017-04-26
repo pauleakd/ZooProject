@@ -1,7 +1,7 @@
 package mainCode;
 
 public enum BIOME {
-	SAVANAH,
+	SAVANNAH,
 	JUNGLE,
 	PLAINS,
 	TUNDRA, 

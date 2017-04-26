@@ -123,7 +123,7 @@ public abstract class Animal implements Edible {
 		System.out.println( this.getClass().getSimpleName() + " " + name + " going on RAMPAGE!");
 		zoo.removeAnimal(this);
 		zoo.addAnimalToZoo(this);
-		Visitor visitor2 = zoo.getVisitors().get(0);
-		eat(visitor2);
+		Visitor visitor = zoo.getVisitors().get(0);
+		eat(visitor);
 	}
 }

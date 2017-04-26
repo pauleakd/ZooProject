@@ -3,7 +3,7 @@ package mainCode;
 public class Phoenix extends Animal {
 	public Phoenix(String name, String gender, boolean maturity){
 		super(name, gender, maturity);
-		biome = BIOME.SAVANAH;
+		biome = BIOME.SAVANNAH;
 		plotSize = 10;
 		carnivoreStatus = false;
 		nutritionalValue = 30;

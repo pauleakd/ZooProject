@@ -4,7 +4,7 @@ public class FireDragon extends Animal {
 	
 	public FireDragon(String name, String gender, boolean maturity){
 		super(name, gender, maturity);
-		biome = BIOME.SAVANAH;
+		biome = BIOME.SAVANNAH;
 		plotSize = 50;
 		carnivoreStatus = true;
 		nutritionalValue = 200;
@@ -14,7 +14,7 @@ public class FireDragon extends Animal {
 	
 	@Override
 	public boolean eat(Plant food){
-			System.out.println("Fire Dragon " + name +" is still hungry");
+			System.out.println("Fire Dragon " + name +" spits out the " + food.getName());
 			return false;	
 		}
 

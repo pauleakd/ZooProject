@@ -120,6 +120,7 @@ public abstract class Animal implements Edible {
 	}	
 	
 	public void rampage(){
+		System.out.println( this.getClass().getSimpleName() + " " + name + " going on RAMPAGE!");
 		zoo.removeAnimal(this);
 		zoo.addAnimalToZoo(this);
 		Visitor visitor2 = zoo.getVisitors().get(0);

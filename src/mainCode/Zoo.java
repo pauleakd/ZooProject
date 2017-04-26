@@ -38,6 +38,7 @@ public class Zoo {
 		if(visitor.buyTicket(ticketPrice) == true){
 			budget += ticketPrice;
 			visitors.add(visitor);
+			System.out.println(visitor.getName() + " bought a ticket");
 			return true;
 			}
 		else return false;
@@ -60,7 +61,13 @@ public class Zoo {
 	public Animal findAnimalInEnclosures(String name){
 		Animal foundAnimal = null;
 		for(Enclosure enclosure : enclosures){
-			foundAnimal = enclosure.getAnimals().get(name);
+			//if(animalExistsInEnclosure(enclosure, name))
+			if(enclosure.getAnimals().get(name) != null){
+				if(enclosure.getAnimals().get(name).getName().equals(name)){
+					foundAnimal = enclosure.getAnimals().get(name);
+					break;
+				}
+			}
 		}
 		return foundAnimal;
 	}
@@ -77,6 +84,7 @@ public class Zoo {
 			budget += animalToSell.getPrice();
 			removeAnimal(animalToSell);
 			buyingZoo.buyBabyAnimal(animalToSell);
+			System.out.println(animalToSell.name + " was sold to another zoo :( ");
 			return true;
 		}
 		else return false;
@@ -118,11 +126,13 @@ public class Zoo {
 				if(enclosure.getPlotSize()>= animal.getPlotSize()){
 					enclosure.addAnimal(animal);
 					animal.setZoo(this);
+					break;
 				}
 				else {
 					enclosure.expand(animal.getPlotSize() - enclosure.getPlotSize());
 					enclosure.addAnimal(animal);
 					animal.setZoo(this);
+					break;
 				}
 			}
 			
@@ -153,6 +163,7 @@ public class Zoo {
 	public void returnAnimalToCageFromUnplacedAnimals(){
 		for(Animal animal : unplacedAnimals.values()){
 			this.placeAnimalInEnclosure(animal);
+			System.out.println(animal.getName() + " was returned to the cage");
 		}
 		
 		unplacedAnimals.clear();

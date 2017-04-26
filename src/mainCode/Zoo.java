@@ -108,6 +108,7 @@ public class Zoo {
 	public void createSuitableEnclosure(Animal animal){
 		Enclosure enclosure = new Enclosure(animal.getPlotSize(), animal.getBiome());
 		enclosure.addAnimal(animal);
+		animal.setZoo(this);
 		enclosures.add(enclosure);
 	}
 
@@ -116,10 +117,12 @@ public class Zoo {
 			if (enclosure.getBiome() == animal.getBiome()){
 				if(enclosure.getPlotSize()>= animal.getPlotSize()){
 					enclosure.addAnimal(animal);
+					animal.setZoo(this);
 				}
 				else {
 					enclosure.expand(animal.getPlotSize() - enclosure.getPlotSize());
 					enclosure.addAnimal(animal);
+					animal.setZoo(this);
 				}
 			}
 			
@@ -145,5 +148,13 @@ public class Zoo {
 				animals.remove(animalToRemoveName);
 			}			
 		}
+	}
+	
+	public void returnAnimalToCageFromUnplacedAnimals(){
+		for(Animal animal : unplacedAnimals.values()){
+			this.placeAnimalInEnclosure(animal);
+		}
+		
+		unplacedAnimals.clear();
 	}
 }

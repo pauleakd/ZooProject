@@ -16,6 +16,7 @@ public abstract class Animal implements Edible {
 	protected int strength;
 	protected int price;
 	protected boolean isDead; 
+	protected Zoo zoo;
 	
 	public Animal(String name, String gender, boolean maturity) {
 		this.name = name;
@@ -49,6 +50,11 @@ public abstract class Animal implements Edible {
 	
 	public int checkHunger(){
 		return hunger;
+	}
+	
+	public void beActive(){
+		hunger -=20;
+		happiness += 10;
 	}
 	
 	public boolean eat(Animal food){
@@ -105,5 +111,18 @@ public abstract class Animal implements Edible {
 		return price;
 	}
 	
+	public Zoo getZoo(){
+		return this.zoo;
+	}
+
+	public void setZoo(Zoo zoo) {
+		this.zoo = zoo;
+	}	
 	
+	public void rampage(){
+		zoo.removeAnimal(this);
+		zoo.addAnimalToZoo(this);
+		Visitor visitor2 = zoo.getVisitors().get(0);
+		eat(visitor2);
+	}
 }

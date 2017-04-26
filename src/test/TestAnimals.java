@@ -49,4 +49,28 @@ public class TestAnimals {
 		assertEquals(true, result);
 		assertEquals(true, unicorn.getIsDead());
 	}
+	
+	@Test 
+	public void testAnimalHasAZoo(){
+		Zoo testZoo = new Zoo();
+		testZoo.placeAnimalInEnclosure(unicorn);
+		assertEquals(testZoo, unicorn.getZoo());
+	}
+	
+	@Test 
+	
+	public void testAnimalRampage(){
+		Visitor visitor = new Visitor("Tony", "male", true, 300);
+		Zoo testZoo = new Zoo();
+		testZoo.placeAnimalInEnclosure(unicorn);
+		testZoo.placeAnimalInEnclosure(leo);
+		testZoo.sellTicket(visitor);
+		leo.rampage();
+		assertEquals(true, visitor.getIsDead());
+		assertEquals(leo, testZoo.findUnplacedAnimal("Leo"));
+		assertEquals(null, testZoo.findAnimalInEnclosures("Leo"));
+		testZoo.returnAnimalToCageFromUnplacedAnimals();
+		assertEquals(null, testZoo.findUnplacedAnimal("Leo"));
+		assertEquals(leo, testZoo.findAnimalInEnclosures("Leo"));
+	}
  }

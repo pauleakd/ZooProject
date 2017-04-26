@@ -23,7 +23,10 @@ public class Visitor extends Animal implements Edible {
 	}
 	
 	public boolean beEaten(int strength){
-		if(strength >= this.strength) return true;
+		if(strength >= this.strength){
+			die();
+			return true;
+		}
 		else return false;
 	}
 	public boolean buyTicket(int price){

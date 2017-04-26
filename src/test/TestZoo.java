@@ -119,7 +119,6 @@ public class TestZoo {
 	}
 	
 	@Test 
-	
 	public void testRemoveDeadAnimalsFromZoo(){
 		testZoo.placeAnimalInEnclosure(unicorn);
 		testZoo.placeAnimalInEnclosure(leo);

@@ -58,17 +58,20 @@ public class Zoo {
 		unplacedAnimals.put(animal.getName(),animal);
 	}
 	
+	private boolean animalExistsInEnclosure(Enclosure enclosure, String name){
+		if (enclosure.getAnimals().get(name) != null) return true;
+		
+		else return false;
+	}
+	
 	public Animal findAnimalInEnclosures(String name){
 		Animal foundAnimal = null;
 		for(Enclosure enclosure : enclosures){
-			//if(animalExistsInEnclosure(enclosure, name))
-			if(enclosure.getAnimals().get(name) != null){
-				if(enclosure.getAnimals().get(name).getName().equals(name)){
+			if(animalExistsInEnclosure(enclosure, name)){
 					foundAnimal = enclosure.getAnimals().get(name);
 					break;
 				}
 			}
-		}
 		return foundAnimal;
 	}
 	
@@ -126,19 +129,20 @@ public class Zoo {
 				if(enclosure.getPlotSize()>= animal.getPlotSize()){
 					enclosure.addAnimal(animal);
 					animal.setZoo(this);
-					break;
+					return;
 				}
 				else {
 					enclosure.expand(animal.getPlotSize() - enclosure.getPlotSize());
 					enclosure.addAnimal(animal);
 					animal.setZoo(this);
-					break;
+					return;
 				}
 			}
-			
-		}
+				
+			}
 		createSuitableEnclosure(animal);
-	}
+		}
+		
 	
 	public void removeDeadAnimalsFromZoo(){
 		for(Enclosure enclosure : enclosures){

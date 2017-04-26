@@ -1,5 +1,8 @@
 package mainCode;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
 public class Runner {
 
 	public static void main(String[] args){
@@ -23,6 +26,18 @@ public class Runner {
 		zoo1.placeAnimalInEnclosure(babyPhoenix);
 		zoo1.placeAnimalInEnclosure(seaSerpent);
 		
+		ArrayList<Enclosure> enclosures = zoo1.getEnclosures();
+		
+		for(Enclosure enclosure : enclosures){
+			HashMap<String, Animal> animals = enclosure.getAnimals();
+			System.out.println("This enclosure is " + enclosure.getBiome());
+			System.out.println(animals);
+//			for( Animal currentAnimal : animals.values()){
+//				
+//				String animalDetails = currentAnimal.class.getSimpleName();
+//				System.out.println("This enclosure has " + animalDetails);
+//			}
+		}
 		
 		zoo1.sellTicket(visitor);
 		
